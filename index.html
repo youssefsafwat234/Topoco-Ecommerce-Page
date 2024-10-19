@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topoco</title>
+    <!-- file css -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        @keyframes fadeIn {
+            from {
+              opacity: 0;
+              transform: translateX(20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+          
+          .animated {
+            animation: fadeIn 0.8s ease-in-out;
+          }
+    </style>
+</head>
+
+<body>
+
+
+
+
+    <!-- header -->
+    <header>
+
+
+        <!--  upper nav -->
+        <div class="container head_nav">
+            <div class="menu" onclick="openMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <a href="#" class="logo">
+                <img src="assets/img/logo-black.png" alt="" />
+            </a>
+
+            <form action="" class="search">
+                <input type="search" placeholder="Search about product...." id="" />
+                <button type="submit">Search</button>
+            </form>
+            <div class="cart-header">
+                <div class="cart">
+                    <i class="fa-solid fa-cart-shopping cart-open"></i>
+                    <span class="count-items">0</span>
+                </div>
+
+                <div class="cart-right">
+                    <div>My Cart</div>
+                    <div>10$</div>
+                </div>
+            </div>
+        </div>
+
+        <!--  lower nav -->
+        <nav class="container low_nav" id="low_nav">
+            <div class="blur-img" onclick="closeMenu()"></div>
+            <div class="head">
+
+                <img src="assets/img/logo-black.png" alt="" />
+                <div class="menu-close" onclick="closeMenu()">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+
+            </div>
+            <ul>
+                <li onclick="scrollToHome()" class="active"><a href="#">home</a></li>
+                <li onclick="scrollToAllProducts()"><a href="#">all products</a></li>
+                <li onclick="scrollToAboutUs()"><a href="#">about us</a></li>
+                <li onclick="scrollToContact()"><a href="#">contact</a></li>
+            </ul>
+
+
+            <div class="sign-in-sign-up
+            ">
+                <a href="#">Login <i class="fa-solid fa-right-to-bracket"></i></a>
+                <a href="#">Sign Up <i class="fa-solid fa-user-plus"></i></a>
+            </div>
+        </nav>
+    </header>
+    <!-- end header -->
+    <!-- cart -->
+    <div class="cart-body">
+        <div class="top-cart">
+            <div class="left">
+                <div class="title"> My Cart
+                    <span class="cart-quantity">(2 items in Cart)</span>
+                </div>
+            </div>
+            <div class="right">
+                <div class="cart-close">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </div>
+            </div>
+        </div>
+        <div class="cart-items">
+            <div class="item">
+                <div class="item-img"><img src="assets/img/product/product-2.jpg" alt=""></div>
+                <div class="item-content">
+                    <h5 class="top">Original Mobile Android Dual SIM Smart Phone G3</h5>
+                    <div class="bottom">$140</div>
+                </div>
+                <div class="item-remove">
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-img"><img src="assets/img/product/product-1.jpg" alt=""></div>
+                <div class="item-content">
+                    <p class="top">Original Mobile Android Dual SIM Smart Phone G3</p>
+                    <div class="bottom">$140</div>
+                </div>
+                <div class="item-remove">
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-img"><img src="assets/img/product/product-3.jpg" alt=""></div>
+                <div class="item-content">
+                    <div class="top">Original Mobile Android Dual SIM Smart Phone G3</div>
+                    <div class="bottom">$140</div>
+                </div>
+                <div class="item-remove">
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+            </div>
+        </div>
+    
+        <div class="cart-bottom">
+            <div class="cart-price">
+                <div class="title">Cart Subtotal</div>
+                <div class="cart-total-price">$0</div>
+            </div>
+
+            <div class="checkout">
+                <a href="#">Checkout</a>
+            </div>
+            <div class="show-more">
+                <a href="#">Show More</a>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+    <!-- end  cart -->
+
+    <!-- categories and swiper -->
+    <section class="categories-swiper">
+
+        <div class=" container">
+            <div class="categories">
+                <h4 class="head">
+                    <i onclick="showOrhide()" class="fa-solid fa-bars"></i> Shop By Department
+                </h4>
+                <div class="body" id="hide-categories">
+                    <div> <a href="#">all categories</a></div>
+                    <div> <a href="#">best seller products</a></div>
+                    <div> <a href="#">new arrivals</a></div>
+                    <div> <a href="#">top 10 offers</a></div>
+                    <div> <a href="#">phones & tablets</a></div>
+                    <div> <a href="#">electronics & digits</a></div>
+                    <div> <a href="#">fashion & clothings</a></div>
+                    <div> <a href="#">jewelry & watches</a></div>
+                    <div> <a href="#">tv & audio</a></div>
+
+                </div>
+            </div>
+
+            <!-- Swiper -->
+            <div class="slide-swp mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><a href="#"><img src="assets/img/slider-01.jpg" alt=""></a></div>
+                    <div class="swiper-slide"><a href="#"><img src="assets/img/slider-02.jpg" alt=""></a></div>
+                    <div class="swiper-slide"><a href="#"><img src="assets/img/slider-03.jpg" alt=""></a></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <!-- end categories and swiper -->
+
+    <!-- features -->
+    <section class="features container">
+        <div class="feature">
+            <div class="feature-img"><img src="assets/img/features1.png" alt=""></div>
+            <div class="feature-content">
+                <h5>Free Shooping</h5>
+                <p>free shooping in all orders</p>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="feature-img"><img src="assets/img/features2.png" alt=""></div>
+            <div class="feature-content">
+                <h5>money guarantee</h5>
+                <p>30 day money back guarantee </p>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="feature-img"><img src="assets/img/features3.png" alt=""></div>
+            <div class="feature-content">
+                <h5>online support 24/7</h5>
+                <p>technical support stand by</p>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="feature-img"><img src="assets/img/features4.png" alt=""></div>
+            <div class="feature-content">
+                <h5>secure payment</h5>
+                <p>all payment method you accepted </p>
+            </div>
+        </div>
+        <div class="feature">
+            <div class="feature-img"><img src="assets/img/features5.png" alt=""></div>
+            <div class="feature-content">
+                <h4>member discount</h4>
+                <p>up to 40% discount all products</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- banners -->
+    <section class="banners container">
+        <div class="banner"><img src="assets/img/banner/banner-1.jpg" /> </div>
+        <div class="banner"><img src="assets/img/banner/banner-2.jpg" /> </div>
+        <div class="banner"><img src="assets/img/banner/banner-3.jpg" /> </div>
+    </section>
+
+    <!-- products  -->
+
+    <section class="products container mySwiper ">
+        <div class="head">
+            <h3>On Sale <span>Product</span></h3>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+
+        <div class="body swiper-wrapper">
+
+
+
+            <div class="product swiper-slide">
+                <div class="options">
+                    <div>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </div>
+
+                <div class="discount">
+                    %17
+                </div>
+                <div class="product-img">
+                    <img class="original-image" src="assets/img/product/product4.jpg" alt="">
+                    <img class="hover-image" src="assets/img/product/product1.jpg" alt="">
+                </div>
+                <div class="description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                </div>
+
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+
+                <div class="price">
+                    <div class="new-price">
+                        $220
+                    </div>
+                    <div class="old-price">
+                        $240
+                    </div>
+                </div>
+            </div>
+            <div class="product swiper-slide">
+                <div class="options">
+                    <div>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </div>
+
+                <div class="discount">
+                    %17
+                </div>
+                <div class="product-img">
+                    <img class="original-image" src="assets/img/product/product3.jpg" alt="">
+                    <img class="hover-image" src="assets/img/product/product4.jpg" alt="">
+                </div>
+                <div class="description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                </div>
+
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+
+                <div class="price">
+                    <div class="new-price">
+                        $220
+                    </div>
+                    <div class="old-price">
+                        $240
+                    </div>
+                </div>
+            </div>
+            <div class="product swiper-slide">
+                <div class="options">
+                    <div>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </div>
+
+                <div class="discount">
+                    %17
+                </div>
+                <div class="product-img">
+                    <img class="original-image" src="assets/img/product/product5.jpg" alt="">
+                    <img class="hover-image" src="assets/img/product/product6.jpg" alt="">
+                </div>
+                <div class="description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                </div>
+
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+
+                <div class="price">
+                    <div class="new-price">
+                        $220
+                    </div>
+                    <div class="old-price">
+                        $240
+                    </div>
+                </div>
+            </div>
+            <div class="product swiper-slide">
+                <div class="options">
+                    <div>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </div>
+
+                <div class="discount">
+                    %17
+                </div>
+                <div class="product-img">
+                    <img class="original-image" src="assets/img/product/product7.jpg" alt="">
+                    <img class="hover-image" src="assets/img/product/product8.jpg" alt="">
+                </div>
+                <div class="description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                </div>
+
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+
+                <div class="price">
+                    <div class="new-price">
+                        $220
+                    </div>
+                    <div class="old-price">
+                        $240
+                    </div>
+                </div>
+            </div>
+            <div class="product swiper-slide">
+                <div class="options">
+                    <div>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </div>
+
+                <div class="discount">
+                    %17
+                </div>
+                <div class="product-img">
+                    <img class="original-image" src="assets/img/product/product6.jpg" alt="">
+                    <img class="hover-image" src="assets/img/product/product5.jpg" alt="">
+                </div>
+                <div class="description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                </div>
+
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+
+                <div class="price">
+                    <div class="new-price">
+                        $220
+                    </div>
+                    <div class="old-price">
+                        $240
+                    </div>
+                </div>
+            </div>
+            <div class="product swiper-slide">
+                <div class="options">
+                    <div>
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-share-from-square"></i>
+                    </div>
+                </div>
+
+                <div class="discount">
+                    %17
+                </div>
+                <div class="product-img">
+                    <img class="original-image" src="assets/img/product/product8.jpg" alt="">
+                    <img class="hover-image" src="assets/img/product/product7.jpg" alt="">
+                </div>
+                <div class="description">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                </div>
+
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+
+                <div class="price">
+                    <div class="new-price">
+                        $220
+                    </div>
+                    <div class="old-price">
+                        $240
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- second banners -->
+    <section class="banners second-banner container">
+        <div class="banner"><img src="assets/img/banner/banner-4.jpg" alt=""></div>
+        <div class="banner"><img src="assets/img/banner/banner-5.jpg" alt=""></div>
+    </section>
+
+    <!-- compute products  -->
+    <section class="products  container  ">
+        <div class="head">
+            <h3>Computer & Desktop <span>Products</span></h3>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <div class="custom-products">
+
+            <div class="computer-products">
+                <div class="fixed-img">
+                    <img src="assets/img/banner/banner-sm-1.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="products-2 mySwiper">
+
+
+                <div class="body swiper-wrapper">
+                    <div class="product swiper-slide">
+                        <div class="options">
+                            <div>
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="discount">
+                            %17
+                        </div>
+                        <div class="product-img">
+                            <img class="original-image" src="assets/img/product/product4.jpg" alt="">
+                            <img class="hover-image" src="assets/img/product/product1.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+
+                        <div class="price">
+                            <div class="new-price">
+                                $220
+                            </div>
+                            <div class="old-price">
+                                $240
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <div class="options">
+                            <div>
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="discount">
+                            %17
+                        </div>
+                        <div class="product-img">
+                            <img class="original-image" src="assets/img/product/product3.jpg" alt="">
+                            <img class="hover-image" src="assets/img/product/product4.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+
+                        <div class="price">
+                            <div class="new-price">
+                                $220
+                            </div>
+                            <div class="old-price">
+                                $240
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <div class="options">
+                            <div>
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="discount">
+                            %17
+                        </div>
+                        <div class="product-img">
+                            <img class="original-image" src="assets/img/product/product5.jpg" alt="">
+                            <img class="hover-image" src="assets/img/product/product6.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+
+                        <div class="price">
+                            <div class="new-price">
+                                $220
+                            </div>
+                            <div class="old-price">
+                                $240
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <div class="options">
+                            <div>
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="discount">
+                            %17
+                        </div>
+                        <div class="product-img">
+                            <img class="original-image" src="assets/img/product/product7.jpg" alt="">
+                            <img class="hover-image" src="assets/img/product/product8.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+
+                        <div class="price">
+                            <div class="new-price">
+                                $220
+                            </div>
+                            <div class="old-price">
+                                $240
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <div class="options">
+                            <div>
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="discount">
+                            %17
+                        </div>
+                        <div class="product-img">
+                            <img class="original-image" src="assets/img/product/product6.jpg" alt="">
+                            <img class="hover-image" src="assets/img/product/product5.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+
+                        <div class="price">
+                            <div class="new-price">
+                                $220
+                            </div>
+                            <div class="old-price">
+                                $240
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <div class="options">
+                            <div>
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="discount">
+                            %17
+                        </div>
+                        <div class="product-img">
+                            <img class="original-image" src="assets/img/product/product8.jpg" alt="">
+                            <img class="hover-image" src="assets/img/product/product7.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+
+                        <div class="price">
+                            <div class="new-price">
+                                $220
+                            </div>
+                            <div class="old-price">
+                                $240
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- compute products  -->
+    <section class="products  container  ">
+        <div class="head">
+            <h3>Phone & Tablet<span> Products</span></h3>
+            <div class="swiper-button-prev new-products-prev"></div>
+            <div class="swiper-button-next new-products-next"></div>
+        </div>
+        <div class="custom-products">
+            <div class="products-2 mySwiper">
+
+
+                <div class="body swiper-wrapper">
+                    <div class="product swiper-slide">
+                        <div class="options">
+                            <div>
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="discount">
+                            %17
+                        </div>
+                        <div class="product-img">
+                            <img class="original-image" src="assets/img/product/product4.jpg" alt="">
+                            <img class="hover-image" src="assets/img/product/product1.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+
+                        <div class="price">
+                            <div class="new-price">
+                                $220
+                            </div>
+                            <div class="old-price">
+                                $240
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <div class="options">
+                            <div>
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="discount">
+                            %17
+                        </div>
+                        <div class="product-img">
+                            <img class="original-image" src="assets/img/product/product3.jpg" alt="">
+                            <img class="hover-image" src="assets/img/product/product4.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+
+                        <div class="price">
+                            <div class="new-price">
+                                $220
+                            </div>
+                            <div class="old-price">
+                                $240
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <div class="options">
+                            <div>
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="discount">
+                            %17
+                        </div>
+                        <div class="product-img">
+                            <img class="original-image" src="assets/img/product/product5.jpg" alt="">
+                            <img class="hover-image" src="assets/img/product/product6.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+
+                        <div class="price">
+                            <div class="new-price">
+                                $220
+                            </div>
+                            <div class="old-price">
+                                $240
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <div class="options">
+                            <div>
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="discount">
+                            %17
+                        </div>
+                        <div class="product-img">
+                            <img class="original-image" src="assets/img/product/product7.jpg" alt="">
+                            <img class="hover-image" src="assets/img/product/product8.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+
+                        <div class="price">
+                            <div class="new-price">
+                                $220
+                            </div>
+                            <div class="old-price">
+                                $240
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <div class="options">
+                            <div>
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="discount">
+                            %17
+                        </div>
+                        <div class="product-img">
+                            <img class="original-image" src="assets/img/product/product6.jpg" alt="">
+                            <img class="hover-image" src="assets/img/product/product5.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+
+                        <div class="price">
+                            <div class="new-price">
+                                $220
+                            </div>
+                            <div class="old-price">
+                                $240
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <div class="options">
+                            <div>
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-share-from-square"></i>
+                            </div>
+                        </div>
+
+                        <div class="discount">
+                            %17
+                        </div>
+                        <div class="product-img">
+                            <img class="original-image" src="assets/img/product/product8.jpg" alt="">
+                            <img class="hover-image" src="assets/img/product/product7.jpg" alt="">
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab reiciendis officia
+                        </div>
+
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+
+                        <div class="price">
+                            <div class="new-price">
+                                $220
+                            </div>
+                            <div class="old-price">
+                                $240
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="computer-products">
+                <div class="fixed-img">
+                    <img src="assets/img/banner/banner-sm-2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- third banners -->
+    <section class="banners container">
+        <div class="banner"><a href="" #><img src="assets/img/banner/banner-8.jpg" alt=""></a></div>
+        <div class="banner"><a href="" #><img src="assets/img/banner/banner-7.jpg" alt=""></a></div>
+        <div class="banner"><a href="" #><img src="assets/img/banner/banner-6.jpg" alt=""></a></div>
+    </section>
+
+
+    <!-- newspaper  -->
+    <section class="newspaper">
+        <div class="left">
+            <div class="img">
+                <img src="assets/img/icon_email.png" alt="">
+            </div>
+            <div class="text">
+                <h2>Sign Up To NewsPaper</h2>
+                <p>get email updates about our latest shop , and secure</p>
+                <h4>$30 Coupon For First Shopping</h4>
+            </div>
+        </div>
+        <div class="right">
+            <form action="" class="search">
+                <input type="search" placeholder="Enter Your Email Here...." id="" />
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- back to top -->
+    <section class="back-to-top">
+        back to top
+    </section>
+
+    <!-- footer -->
+    <footer>
+
+        <div class="top">
+            <div class="logos">
+                <div class="logo">
+                    <img src="assets/img/logo-white.png" alt="">
+                </div>
+                <div class="hotline">
+                    <div class="logo">
+                        <img src="assets/img/features5.png" alt="">
+                    </div>
+                    <div class="text">
+                        <h4 class="white">Hotline Free 24/24</h4>
+                        <h4 class="title">(+100) 123 456 789</h4>
+                    </div>
+                </div>
+                <div class="gray">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                </div>
+            </div>
+
+            <div class="faqs">
+                <h3 class="white">FAQs & Help</h3>
+
+                <ul>
+                    <li class="gray"> <a href="#">F.A.Q.'s </a></li>
+                    <li class="gray"> <a href="#">Ordering Tracking </a></li>
+                    <li class="gray"> <a href="#">Contacts </a></li>
+                    <li class="gray"> <a href="#">Events </a></li>
+                    <li class="gray"> <a href="#">Help Center </a></li>
+                </ul>
+            </div>
+
+
+            <div class="shipping">
+                <h3 class="white">Shipping & Delivery</h3>
+
+                <ul>
+                    <li class="gray"> <a href="#">Delivery Information </a></li>
+                    <li class="gray"> <a href="#">Discount </a></li>
+                    <li class="gray"> <a href="#">Payment & shipping </a></li>
+                    <li class="gray"> <a href="#">Estimation Delivery Tim </a>e</li>
+                    <li class="gray"> <a href="#">Shipping Guide </a></li>
+                </ul>
+            </div>
+
+            <div class="information">
+                <h3 class="white">Information</h3>
+
+                <ul>
+                    <li class="gray"> <a href="#">Popular </a></li>
+                    <li class="gray"> <a href="#">Our Services </a></li>
+                    <li class="gray"> <a href="#">Your Account </a></li>
+                    <li class="gray"> <a href="#">Privacy Policy </a></li>
+                    <li class="gray"> <a href="#">Terms & Condition </a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="copyright">
+                Copy &copy; <span>Topico.</span> All Rights Reserved
+            </div>
+
+            <div class="imgs">
+                <img src="assets/img/payment-1.png" alt="">
+                <img src="assets/img/payment-2.png" alt="">
+                <img src="assets/img/payment-3.png" alt="">
+                <img src="assets/img/payment-4.png" alt="">
+            </div>
+        </div>
+
+
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="assets/js/script.js"></script>
+    <!-- swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        window.onload = function () {
+            const categories = document.querySelector('.categories');
+            const customSwiper = document.querySelector('.custom-swiper');
+
+            if (categories && customSwiper) {
+                customSwiper.style.height = `${categories.offsetHeight}px`;
+            }
+        };
+
+        window.onresize = function () {
+            const categories = document.querySelector('.categories');
+            const customSwiper = document.querySelector('.custom-swiper');
+
+            if (categories && customSwiper) {
+                customSwiper.style.height = `${categories.offsetHeight}px`;
+            }
+        };
+    </script>
+    <script>
+        var swiper = new Swiper(".slide-swp", {
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullests: true,
+                clickable: true
+            },
+            autoplay: {
+                delay: 2000,
+            },
+            loop: true,
+        });
+    </script>
+    <script>
+        var swiper = new Swiper(".products", {
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullests: true,
+                clickable: true
+            },
+            slidesPerView: 5,
+            autoplay: {
+                delay: 2000,
+            }, navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+
+            },
+            loop: true
+            ,
+            breakpoints: {
+                1600: {
+                    slidesPerView: 5
+                },
+                1200: {
+                    slidesPerView: 4
+                },
+                800: {
+                    slidesPerView: 3
+                },
+                400: {
+                    slidesPerView: 2
+                },
+            }
+        });
+    </script>
+    <script>
+        var swiper = new Swiper(".products-2", {
+            pagination: {
+                el: ".swiper-pagination",
+                dynamicBullests: true,
+                clickable: true
+            },
+            slidesPerView: 5,
+            autoplay: {
+                delay: 2000,
+            }, navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+
+            },
+            loop: true
+            ,
+            breakpoints: {
+                1600: {
+                    slidesPerView: 5
+                },
+                1200: {
+                    slidesPerView: 4
+                },
+                800: {
+                    slidesPerView: 3
+                },
+                400: {
+                    slidesPerView: 2
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
